@@ -1,0 +1,22 @@
+[package]
+name = "dsid-alpha-v1-contracts"
+version = "1.0.0"
+authors = ["Parv <parv@stactrace.com>"]
+edition = "2021"
+
+[features]
+# default = ["std", "wee_alloc"]
+default = ["std"]
+std = ["concordium-std/std", "concordium-cis2/std"]
+# wee_alloc = ["concordium-std/wee_alloc"]
+
+[dependencies]
+concordium-cis2 = "3.1.0"
+concordium-std = "6.2.0"
+
+[lib]
+crate-type=["cdylib", "rlib"]
+
+[profile.release]
+codegen-units = 1
+opt-level = "s"
